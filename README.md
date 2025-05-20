@@ -1,3 +1,5 @@
+[![Python CI](https://github.com/ArkDy1312/TraceAI/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ArkDy1312/TraceAI/actions/workflows/python-ci.yml)
+
 
 # 🔍 LLM-Powered Traceability System
 
