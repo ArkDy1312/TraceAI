@@ -1,0 +1,15 @@
+langgraph
+qdrant-client
+ollama
+gradio
+tqdm
+sqlalchemy
+python-dotenv
+pytest
+networkx
+pyvis
+black
+flake8
+isort
+pre-commit
+psycopg2-binary
