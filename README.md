@@ -35,7 +35,7 @@ Using structured input data (`traceability_sample_data.json`), the system builds
 Feature: "Profile Picture Upload"
  ├── Code: commit_be7099f7 by Jeanette Johnson
  │    ├── Test: test_sea_31 (Failed)
- │    └── Test: test_like_89 (Failed)
+ │    └── Test: test_like_89 (Passed)
 ```
 
 These links are formed using **semantic similarity + metadata filtering**, not basic keyword matching.
