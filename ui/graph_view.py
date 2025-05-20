@@ -10,6 +10,7 @@ status_color = {
     "Done": "blue",
 }
 
+
 def parse_feature_rows(rows):
     features = {
         "feature_id": [],
@@ -18,13 +19,21 @@ def parse_feature_rows(rows):
         "commits": [],
         "commit_status": [],
         "test_name": [],
-        "test_status": []
+        "test_status": [],
     }
 
     if not rows:
         return features
 
-    for feature_id, title, description, commit_id, commit_status, test_name, test_status in rows:
+    for (
+        feature_id,
+        title,
+        description,
+        commit_id,
+        commit_status,
+        test_name,
+        test_status,
+    ) in rows:
         # Append feature details
         features["feature_id"].append(feature_id)
         features["title"].append(title)
@@ -34,6 +43,7 @@ def parse_feature_rows(rows):
         features["test_name"].append(test_name)
         features["test_status"].append(test_status)
     return features
+
 
 def generate_trace_graph(workspace: str, feature: str):
     G = nx.DiGraph()
@@ -52,21 +62,21 @@ def generate_trace_graph(workspace: str, feature: str):
 
         if commit_id is None:
             commit_id = ""
-            commit_label=f"Commit: [{commit_status}]"
+            commit_label = f"Commit: [{commit_status}]"
         else:
-            commit_label=f"Commit: {commit_id}\n[{commit_status}]"
+            commit_label = f"Commit: {commit_id}\n[{commit_status}]"
         if test_name is None:
             test_name = ""
-            test_label=f"Test: [{test_status}]"
+            test_label = f"Test: [{test_status}]"
         else:
-            test_label=f"Test: {test_name}\n[{test_status}]"
+            test_label = f"Test: {test_name}\n[{test_status}]"
 
         G.add_node(
             feature_id,
             label=title,
             title=f"Feature ID: {feature_id}\n{description}",
             color="orange",
-            url=f"https://example.com/feature/{feature_id}"
+            url=f"https://example.com/feature/{feature_id}",
         )
 
         G.add_node(
@@ -74,7 +84,7 @@ def generate_trace_graph(workspace: str, feature: str):
             label=commit_label,
             title="",
             color=status_color.get(commit_status),
-            url=f"https://github.com/your-org/repo/commit/{commit_id}"
+            url=f"https://github.com/your-org/repo/commit/{commit_id}",
         )
         G.add_edge(feature_id, commit_id)
 
@@ -83,16 +93,16 @@ def generate_trace_graph(workspace: str, feature: str):
             label=test_label,
             title="",
             color=status_color.get(test_status),
-            url=f"https://testrail.local/tests/{test_name}"
+            url=f"https://testrail.local/tests/{test_name}",
         )
         G.add_edge(commit_id, test_name)
 
     net = Network(directed=True, height="600px", width="100%", notebook=False)
     net.from_nx(G)
-    net.show_buttons(filter_=['physics'])  # Optional toolbar
+    net.show_buttons(filter_=["physics"])  # Optional toolbar
 
     html = net.generate_html()
-    html = html.replace("'", "\"")
+    html = html.replace("'", '"')
     final_html = f"""<iframe style="width: 100%; height: 600px;margin:0 auto" name="result" allow="midi; geolocation; microphone; camera; 
     display-capture; encrypted-media;" sandbox="allow-modals allow-forms 
     allow-scripts allow-same-origin allow-popups 

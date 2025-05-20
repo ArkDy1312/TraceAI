@@ -8,6 +8,7 @@ file_path = "data/traceability_sample_data.json"
 with open(file_path, "r") as f:
     all_workspace_data = json.load(f)
 
+
 def run_trace():
     graph = build_trace_graph()
     for data in all_workspace_data:

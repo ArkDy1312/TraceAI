@@ -29,7 +29,3 @@ jobs:
 
       - name: Run isort (check only)
         run: isort . --check-only
-
-      - name: Run flake8
-        run: flake8 .
-

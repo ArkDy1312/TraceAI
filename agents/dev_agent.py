@@ -5,6 +5,7 @@ from utils.delta_checker import is_changed, update_cache
 from state.trace_state import TraceState
 from store.postgres_store import feature_status, update_commit_status
 
+
 def dev_agent_step(state: TraceState) -> TraceState:
     workspace_id = state["workspace_id"]
     collection = workspace_id
@@ -22,12 +23,20 @@ def dev_agent_step(state: TraceState) -> TraceState:
 
         # Check if feature exists before processing
         if not feature_status(workspace_id, feature_id):
-            log_action("Dev Agent", f"Feature {feature_id} not found in workspace {workspace_id}. Skipping.", raw_commit["commit_ID"])
+            log_action(
+                "Dev Agent",
+                f"Feature {feature_id} not found in workspace {workspace_id}. Skipping.",
+                raw_commit["commit_ID"],
+            )
             continue
 
         embedding = get_embedding(clean_text)
         if not embedding:
-            log_action("Dev Agent", "No updates - nothing new to store", raw_commit["commit_ID"])
+            log_action(
+                "Dev Agent",
+                "No updates - nothing new to store",
+                raw_commit["commit_ID"],
+            )
             continue
 
         metadata = {
@@ -35,7 +44,7 @@ def dev_agent_step(state: TraceState) -> TraceState:
             "title": raw_commit["title"],
             "feature_description": raw_commit["feature_description"],
             "commit_ID": raw_commit["commit_ID"],
-            "author": raw_commit["author"]
+            "author": raw_commit["author"],
         }
 
         store_vector(collection, clean_text, metadata, embedding)
@@ -48,7 +57,4 @@ def dev_agent_step(state: TraceState) -> TraceState:
     if not updated_commits:
         return state
 
-    return {
-        **state,
-        "code_links": updated_commits
-    }
+    return {**state, "code_links": updated_commits}

@@ -64,7 +64,7 @@ These links are formed using **semantic similarity + metadata filtering**, not b
 | **Gradio**        | UI for dashboard and interactive Q&A                |
 | **SQLite**        | Lightweight audit log database                      |
 | **PostgreSQL**    | Stores features and commit status metadata          |
-| **TQDM, isort, black, flake8** | Dev tools for formatting, linting, and UX     |
+| **TQDM, isort, black** | Dev tools for formatting, linting, and UX     |
 
 ---
 

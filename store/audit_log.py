@@ -7,6 +7,7 @@ Base = declarative_base()
 engine = create_engine(os.getenv("DATABASE_URL", "sqlite:///audit.db"))
 Session = sessionmaker(bind=engine)
 
+
 class AuditLog(Base):
     __tablename__ = "audit_logs"
     id = Column(Integer, primary_key=True)
@@ -15,13 +16,16 @@ class AuditLog(Base):
     action = Column(String)
     details = Column(String)
 
+
 class ItemCache(Base):
     __tablename__ = "item_cache"
     id = Column(String, primary_key=True)
     content_hash = Column(String)
     item_type = Column(String)
 
+
 Base.metadata.create_all(engine)
+
 
 def log_action(agent, action, details):
     session = Session()

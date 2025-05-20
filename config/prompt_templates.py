@@ -21,7 +21,7 @@ QUESTION:
 ANSWER:
 """
 
-INTENT_PROMPT =  """
+INTENT_PROMPT = """
 Your task is to identify all applicable intents from a fixed list, based on the user's QUESTION.
 
 Each intent refers to a specific kind of technical traceability information. Match the QUESTION only to the intents that are explicitly or clearly implied. Return multiple intents as a comma-separated list. If no intent applies, respond with "unknown".

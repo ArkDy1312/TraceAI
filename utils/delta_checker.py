@@ -2,8 +2,10 @@ import hashlib
 from sqlalchemy.orm import Session
 from store.audit_log import ItemCache, engine
 
+
 def compute_hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
 
 def is_changed(item_id: str, text: str) -> bool:
     h = compute_hash(text)
@@ -14,6 +16,7 @@ def is_changed(item_id: str, text: str) -> bool:
         return False
     session.close()
     return True
+
 
 def update_cache(item_id: str, item_type: str, text: str):
     h = compute_hash(text)

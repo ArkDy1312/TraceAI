@@ -1,5 +1,6 @@
 from typing import TypedDict, List, Optional
 
+
 # Shared state structure
 class TraceState(TypedDict):
     workspace_id: str
