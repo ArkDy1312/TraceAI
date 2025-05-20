@@ -5,9 +5,11 @@ import gradio as gr
 from store.audit_reader import get_audit_logs, get_manual_overrides
 from store.hybrid_search import hybrid_search
 from store.llm_chat import llm_call
-from store.postgres_store import (get_commits_for_feature,
-                                  get_feature_id_title_pairs,
-                                  get_tests_for_feature)
+from store.postgres_store import (
+    get_commits_for_feature,
+    get_feature_id_title_pairs,
+    get_tests_for_feature,
+)
 from ui.graph_view import generate_trace_graph
 from utils.manual_updating import manual_update
 

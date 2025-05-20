@@ -1,6 +1,9 @@
 from store.audit_log import log_action
-from store.postgres_store import (get_commits_for_single_feature,
-                                  update_commit_status, update_test_status)
+from store.postgres_store import (
+    get_commits_for_single_feature,
+    update_commit_status,
+    update_test_status,
+)
 from store.qdrant_store import delete_vector
 
 

@@ -26,6 +26,3 @@ jobs:
 
       - name: Run black (check only)
         run: black . --check
-
-      - name: Run isort (check only)
-        run: isort . --check-only

@@ -2,8 +2,7 @@ import os
 
 import requests
 
-from config.prompt_templates import (EXISTS_PROMPT, INTENT_PROMPT,
-                                     NOT_EXISTS_PROMPT)
+from config.prompt_templates import EXISTS_PROMPT, INTENT_PROMPT, NOT_EXISTS_PROMPT
 
 OLLAMA_BASE = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 model = "gemma3:1b"  # or tinyllama
