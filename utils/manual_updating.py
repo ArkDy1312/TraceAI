@@ -1,10 +1,7 @@
 from store.audit_log import log_action
+from store.postgres_store import (get_commits_for_single_feature,
+                                  update_commit_status, update_test_status)
 from store.qdrant_store import delete_vector
-from store.postgres_store import (
-    update_test_status,
-    update_commit_status,
-    get_commits_for_single_feature,
-)
 
 
 def manual_update(workspace_id, feature_id, item_type, item_id, text, author):

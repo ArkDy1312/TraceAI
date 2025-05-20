@@ -1,6 +1,7 @@
-from sqlalchemy.orm import Session
-from store.audit_log import AuditLog, engine
 import pandas as pd
+from sqlalchemy.orm import Session
+
+from store.audit_log import AuditLog, engine
 
 
 def get_audit_logs(limit=50):

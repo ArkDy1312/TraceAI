@@ -1,15 +1,10 @@
-from qdrant_client import QdrantClient
-from qdrant_client.models import (
-    PointStruct,
-    VectorParams,
-    Distance,
-    Filter,
-    FieldCondition,
-    MatchValue,
-    FilterSelector,
-)
 import os
 import uuid
+
+from qdrant_client import QdrantClient
+from qdrant_client.models import (Distance, FieldCondition, Filter,
+                                  FilterSelector, MatchValue, PointStruct,
+                                  VectorParams)
 
 QDRANT_URL = os.getenv("QDRANT_HOST", "http://localhost:6333")
 client = QdrantClient(url=QDRANT_URL)

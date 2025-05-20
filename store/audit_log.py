@@ -1,7 +1,8 @@
-from sqlalchemy import create_engine, Column, String, DateTime, Integer
-from sqlalchemy.orm import declarative_base, sessionmaker
 import datetime
 import os
+
+from sqlalchemy import Column, DateTime, Integer, String, create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 Base = declarative_base()
 engine = create_engine(os.getenv("DATABASE_URL", "sqlite:///audit.db"))

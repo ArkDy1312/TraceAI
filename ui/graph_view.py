@@ -1,5 +1,6 @@
-from pyvis.network import Network
 import networkx as nx
+from pyvis.network import Network
+
 from store.postgres_store import get_graph_data
 
 # Decide node color based on status

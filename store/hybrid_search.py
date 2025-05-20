@@ -1,9 +1,10 @@
+import os
+
+from qdrant_client import QdrantClient
+from qdrant_client.http.models import FieldCondition, Filter, MatchValue
+
 from store.embedder import get_embedding
 from store.llm_chat import intent_detector
-from qdrant_client import QdrantClient
-from qdrant_client.http.models import Filter, FieldCondition, MatchValue
-
-import os
 
 QDRANT_URL = os.getenv("QDRANT_HOST", "http://localhost:6333")
 client = QdrantClient(url=QDRANT_URL)

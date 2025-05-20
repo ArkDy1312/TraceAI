@@ -1,5 +1,6 @@
-from orchestrator.langgraph_workflow import build_trace_graph
 import json
+
+from orchestrator.langgraph_workflow import build_trace_graph
 
 # Path to the file (adjust if necessary)
 file_path = "data/traceability_sample_data.json"
