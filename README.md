@@ -79,7 +79,7 @@ These links are formed using **semantic similarity + metadata filtering**, not b
 ### Installation
 
 ```bash
-git clone https://github.com/your-org/langgraph-trace.git
+git clone [https://github.com/your-org/langgraph-trace.git](https://github.com/ArkDy1312/TraceAI.git)
 cd langgraph-trace
 docker-compose up --build
 ```
